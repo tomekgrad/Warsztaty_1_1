@@ -1,0 +1,71 @@
+package Zadanie_1;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main1 {
+
+	public static void main(String[] args) {
+
+		/*
+		 * Warsztat: Gra w zgadywanie liczb.
+
+Napisz prostą grę w zgadywanie liczb. Komputer musi wylosować liczbę w zakresie od 1 do 100. Następnie:
+
+    Zadać pytanie: "Zgadnij liczbę" i pobrać liczbę z klawiatury.
+    Sprawdzić, czy wprowadzony napis, to rzeczywiście liczba i w razie 
+    błędu wyświetlić komunikat "To nie jest liczba", po czym wrócić do pkt. 1
+    Jeśli liczba podana przez użytkownika jest mniejsza niż wylosowana, wyświetlić komunikat "Za mało!", 
+    po czym wrócić do pkt. 1.
+    Jeśli liczba podana przez użytkownika jest większa niż wylosowana, wyświetlić komunikat "Za dużo!",
+     po czym wrócić do pkt. 1.
+    Jeśli liczba podana przez użytkownika jest równa wylosowanej, wyświetlić komunikat "Zgadłeś!", 
+    po czym zakończyć działanie programu.
+
+Przykład:
+
+Zgadnij liczbę: cześć
+To nie jest liczba.
+Zgadnij liczbę: 50
+Za mało!
+Zgadnij liczbę: 75
+Za dużo!
+Zgadnij liczbę: 63
+Zgadłeś!
+
+		 */
+
+		zgaduj();
+		
+	}
+
+	static void zgaduj() {
+		
+		Random r = new Random(100);		
+		int liczba = r.nextInt() + 1;	
+		int wpisana = 0;
+		Scanner scan = new Scanner(System.in);
+		
+		while(true) {
+		System.out.println("Zgadnij liczbę od 1 do 100:");
+			while(!scan.hasNextInt()) {
+				scan.next();
+				System.out.println("Podaj poprawną wartość");
+			}
+			
+		wpisana = scan.nextInt();
+		if (wpisana == liczba) {
+			System.out.println("Zgadłeś");
+		}
+		else if (wpisana > liczba) {
+			System.out.println("Za mało!");
+		}
+		else if (wpisana < liczba) {
+			System.out.println("Za dużo!");
+		}
+		}
+		
+	}
+	
+	
+}
